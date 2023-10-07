@@ -1,0 +1,257 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/framework.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css'%}">
+    <link rel="stylesheet" href="{% static '/fontawesome-free-5.15.4-web/css/all.css'%}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web/css/all.min.css'%}">
+    <!-- Start Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <!--Ends Google Fonts -->
+    <!-- Start icon awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- End icon awesome -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
+</head>
+
+<body>
+    
+    <div class="page d-flex">
+        {%include 'sidebar.html'%}
+        <div class="content w-full">
+            <!-- start head -->
+            <div class="head bg-white p-15 between-flex">
+                <div class="search p-relative">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" placeholder="Search">
+                </div>
+                <div class="icon d-flex align-center">
+                    <span class="notfication p-relative">
+                        <i class="fa-regular fa-bell fa-lg"></i>
+                    </span>
+                    <img src="{% static 'images/avatar.png'%}" alt="" />
+                </div>
+            </div>
+            <!-- End head -->
+            <h1 class="p-relative cssanimation leSnake sequence">Dashboard</h1>
+            <div class="wrapper d-grid gap-20">
+                <div class="welcome bg-white rad-10 txt-c-mobile block-mobile">
+                    <div class="intro p-20 d-flex space-between bg-eee">
+                        <div>
+                            <h2 class="m-0">Welcome</h2>
+                            <p class="c-red mt-5">{{user.username}}</p>
+                        </div>
+                        <img src="{% static 'images/welcome.png'%}" alt="">
+                    </div>
+                    <img src="{% static 'images/avatar.png'%}" alt="" class="avatar">
+                    <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
+                        <div>{{acc.fullName}} <span class="d-block c-red fs-14 mt-10">{{acc.DocOrPat}}</span></div>
+                        <div>{{acc.yearOfExp}}<span class="d-block c-red fs-14 mt-10">Experience</span></div>
+                        <div>500$<span class="d-block c-red fs-14 mt-10">payed</span></div>
+                    </div>
+                    <a href="{% url 'system:profile' %}" class="visit d-block fs-14 rad-6 bg-blue c-white w-fit">Profile</a>
+                </div>
+                <!-- End welcome  -->
+                <!-- Start Quick Draft -->
+                <div class="quick-draft p-20 bg-white rad-10">
+                    <h2 class="mt-0 mb-10">Quick Draft</h2>
+                    <p class="mt-0 mb-20 c-red fs-15">Write A Draft For Your Ideas</p>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <input class="d-block mb-20 p-10 w-full b-none  bg-eee rad-10 " type="text" placeholder="Title" name="title">
+                        <textarea class="p-10 mb-20 d-block w-full bg-eee b-none red-10"
+                            placeholder="Your Thought" name="thought"></textarea>
+                        <input class="w-v fs-14 d-block bg-blue c-white w-fit rad-6 b-none" type="submit" value="Save">
+                    </form>
+                </div>
+                <!-- End  Quick Draft -->
+                <!-- Start Targets -->
+                <div class="targets p-20 bg-white rad-10">
+                    <h2 class="mt-0 mb-10">Yearly Targets</h2>
+                    <p class="mt-0 mb-20 c-red fs-15">Targets Of The Year</p>
+                    <div class="target-row mb-20 blue center-flex">
+                        <div class="icon center-flex">
+                            <i class="fa-solid fa-dollar-sign fa-lg c-blue"></i>
+                        </div>
+                        <div class="details ml-20">
+                            <span class="c-blue fs-15">Money</span>
+                            <span class="d-block mt-5 mb-10 fw-bold ">8,000$</span>
+                            <div class="progress p-relative">
+                                <span class="bg-blue blue" style="width: 70%;">
+                                    <span class="bg-blue">70%</span>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="target-row mb-20 orange center-flex ">
+                        <div class="icon center-flex">
+                            <i class="fa-solid fa-code fa-lg c-orange"></i>
+                        </div>
+                        <div class="details ml-20">
+                            <span class=" fs-15 c-orange">Projects</span>
+                            <span class="d-block mt-5 mb-10 fw-bold ">15</span>
+                            <div class="progress p-relative">
+                                <span class="bg-orange orange" style="width: 55%;">
+                                    <span class="bg-orange">55%</span>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="target-row mb-20 red center-flex">
+                        <div class="icon center-flex">
+                            <i class="fa-solid fa-user fa-lg c-red"></i>
+                        </div>
+                        <div class="details ml-20">
+                            <span class=" fs-15 c-red">Team</span>
+                            <span class="d-block mt-5 mb-10 fw-bold ">8</span>
+                            <div class="progress p-relative">
+                                <span class="bg-red red" style="width: 80%;">
+                                    <span class="bg-red">80%</span>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End  Targets -->
+                <!-- Start Tickets -->
+                <div class="Ticket bg-white p-20 rad-10">
+                    <h2 class="mt-0 mb-10">Tickets Statistics</h2>
+                    <p class="mt-0 mb-20 c-red fs-15">Everything About Support Tickets</p>
+                    <div class="d-flex f-wrap gap-20">
+                        <div class="box1 p-20 rad-10 c-orange ">
+                            <div class="icon">
+                                <i class="fa-regular fa-rectangle-list fa-2x mb-10 c-orange"></i>
+                            </div>
+                            <div class="info">
+                                <span class="d-block mb-10 mt-10 c-orange fs-25 fw-bold ">2500</span>
+                                <span class="c-gray">Total</span>
+                            </div>
+                        </div>
+
+                        <div class="box2 p-20 rad-10 c-blue  ">
+                            <div class="icon">
+                                <i class="fa-solid fa-spinner fa-2x mb-10 c-blue"></i>
+                            </div>
+                            <div class="info">
+                                <span class="d-block mb-10 mt-10 c-blue fs-25 fw-bold ">500
+                                </span>
+                                <span class="c-gray">Pending</span>
+                            </div>
+                        </div>
+
+                        <div class="box3 p-20 rad-10 c-red  ">
+                            <div class="icon">
+                                <i class="fa-regular fa-circle-check fa-2x mb-10 c-red"></i>
+                            </div>
+                            <div class="info">
+                                <span class="d-block mb-10 mt-10 c-red fs-25 fw-bold ">1900</span>
+                                <span class="c-gray">Closed</span>
+                            </div>
+                        </div>
+
+                        <div class="box4 p-20 rad-10 c-green  ">
+                            <div class="icon">
+                                <i class="fa-regular fa-rectangle-xmark fa-2x mb-10 c-green"></i>
+                            </div>
+                            <div class="info">
+                                <span class="d-block mb-10 mt-10 c-green fs-25 fw-bold ">100</span>
+                                <span class="c-gray">Deleted</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Tickets -->
+                <!-- Start Latest -->
+                <div class="latest-news p-20 bg-white rad-10 txt-c-mobile">
+                    <h2 class="mt-0 mb-20">Latest News</h2>
+                    <div class="news-row d-flex align-center">
+                        <img src="./images/news-01.png " alt="">
+                        <div class="info">
+                            <h3>Created SASS Section
+                            </h3>
+                            <p class="m-0 c-red fs-14">New SASS Examples & Tutorials
+                            </p>
+                        </div>
+                        <div class="btn-shape bg-red fs-14 lable">3 Days Ago</div>
+                    </div>
+
+                    <div class="news-row d-flex align-center">
+                        <img src="./images/news-02.png " alt="">
+                        <div class="info">
+                            <h3>Changed The Design
+                            </h3>
+                            <p class="m-0 c-red fs-14">A Brand New Website Design
+                            </p>
+                        </div>
+                        <div class="btn-shape bg-red fs-14 lable">5 Days Ago</div>
+                    </div>
+
+                    <div class="news-row d-flex align-center">
+                        <img src="./images/news-03.png " alt="">
+                        <div class="info">
+                            <h3>Team Increased
+                            </h3>
+                            <p class="m-0 c-red fs-14">3 Developers Joined The Team
+                            </p>
+                        </div>
+                        <div class="btn-shape bg-red fs-14 lable">7 Days Ago</div>
+                    </div>
+
+                    <div class="news-row d-flex align-center">
+                        <img src="./images/news-04.png " alt="">
+                        <div class="info">
+                            <h3>Added Payment Gateway
+                            </h3>
+                            <p class="m-0 c-red fs-14">Many New Payment Gateways Added
+                            </p>
+                        </div>
+                        <div class="btn-shape bg-red fs-14 lable">9 Days Ago</div>
+                    </div>
+                </div>
+                <!-- End Latest -->
+                <!-- Start Latest Tasks -->
+                <div class="latest-tasks p-20 bg-white ">
+                    <h2 class="mt-0 mb-20">Latest drafs
+                    </h2>
+                    {% for dr in draf %}
+                    <div class="tasks-row between-flex">
+                        <div class="info">
+                            <h3 class="mt-0 fs-14">{{dr.title}}
+                            </h3>
+                            <p class="m-0 c-blue fs-14">{{dr.thought}}
+                            </p>
+                        </div>
+                        <a href="{%url 'system:delete' dr.id %}"><i class="fa-regular fa-trash-can delete"></i></a>
+                    </div>
+                    {%endfor%}
+                </div>
+                <!-- End Latest Tasks -->
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

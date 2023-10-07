@@ -1,0 +1,74 @@
+<div class="sidebar bg-white p-20 p-relative">
+    <h3 class="p-relative txt-c mt-0">Med Care</h3>
+    <ul>
+        {%if user.is_authenticated%}
+        <li>
+            <a class=" d-flex align-center fs-14 c-black red-6 p-10 " href="{% url 'system:Home' %}">
+                <i class="fa-solid fa-chart-gantt fa-fw"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a class="  d-flex align-center fs-14 c-black red-6 p-10 " href="{% url 'system:setting' %}">
+                <i class="fa-solid fa-gear fa-fw"></i>
+                <span>Settings</span>
+            </a>
+        </li>
+        <li>
+            <a class="  d-flex align-center fs-14 c-black red-6 p-10 " href="{% url 'system:profile' %}">
+                <i class="fa-regular fa-user fa-fw"></i>
+                <span>Profile</span>
+            </a>
+        </li>
+        <li?\>
+                <a class=" d-flex align-center fs-14 c-black red-6 p-10 " href="{% url 'system:projects' %}">
+                <i class="fa-solid fa-diagram-project fa-fw"></i>
+                <span>Projects</span>
+            </a>
+        </li>
+        <li>
+            <a class=" d-flex align-center fs-14 c-black red-6 p-10 " href="{% url 'system:sessions' %}">
+                <i class="fa-solid fa-graduation-cap fa-fw"></i>
+                <span>doctors</span>
+            </a>
+        </li>
+        <li>
+            <a class=" d-flex align-center fs-14 c-black red-6 p-10 " href="{% url 'system:friends' %}">
+                <i class="fa-regular fa-circle-user fa-fw"></i>
+                <span>Friends</span>
+            </a>
+        </li>
+        <li>
+            <a class=" d-flex align-center fs-14 c-black red-6 p-10 " href="{% url 'system:plans' %}">
+                <i class="fa-solid fa-qrcode"></i>
+                <span>Plans</span>
+            </a>
+        </li>
+        <li>
+            <a class=" d-flex align-center fs-14 c-black red-6 p-10 " href="{% url 'system:logout' %}">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <span>logout</span>
+            </a>
+        </li>
+        {%else%}
+        <li>
+            <a class=" d-flex align-center fs-14 c-black red-6 p-10 " href="{% url 'system:sessions' %}">
+                <i class="fa-solid fa-graduation-cap fa-fw"></i>
+                <span>doctors</span>
+            </a>
+        </li>
+        <li>
+            <a class=" d-flex align-center fs-14 c-black red-6 p-10 " href="{% url 'system:plans' %}">
+                <i class="fa-solid fa-qrcode"></i>
+                <span>Plans</span>
+            </a>
+        </li>
+        <li>
+            <a class=" d-flex align-center fs-14 c-black red-6 p-10 " href="{% url 'system:signup' %}">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <span>Login</span>
+            </a>
+        </li>
+    </ul>
+    {%endif%}
+</div>

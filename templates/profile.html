@@ -1,0 +1,270 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'css/framework.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css'%}">
+    <link rel="stylesheet" href="{% static 'css/profile.css'%}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/fontawesome-free-5.15.4-web/css/all.css'%}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web/css/all.min.css'%}">
+
+
+    <!-- Start Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <!--Ends Google Fonts -->
+    <!-- Start icon awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- End icon awesome -->
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&#038;display=swap" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="page d-flex" >
+        {%include 'sidebar.html'%}
+
+        <div class="content w-full">
+            <!-- start head -->
+            <div class="head bg-white p-15 between-flex">
+                <div class="search p-relative">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" placeholder="Search">
+                </div>
+                <div class="icon d-flex align-center">
+                    <span class="notfication p-relative">
+                        <i class="fa-regular fa-bell fa-lg"></i>
+                    </span>
+                    <img src="{% static 'images/avatar.png'%}" alt="" />
+                </div>
+            </div>
+            <!-- End head -->
+            <h1 class="p-relative">Profile</h1>
+            <div class="profile-page m-20  gap-20 ">
+                <!-- start frofile box -->
+                <div class="overview p-20 bg-white rad-10">
+                    <div class="avatar-box txt-c p-20">
+                        {%if account.proPic%}
+                        <img class="rad-half mb-20" src="{{account.proPic.url}}" alt="">
+                        {%else%}
+                        <img class="rad-half mb-20" src="{% static 'images/blankPro.jpg' %}" alt="">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            <input type="file" name="profileImg" id="" accept="image/*" style="border: none;">
+                            <input type="submit" name="profilePic">
+                        </form>
+                        {%endif%}                        
+                        <h3 class="m-0">{{user.username}}</h3>
+                        <p class="c-red mt-20">{{user.email}}</p>
+                        <div class="level rad-6 bg-eee p-relative">
+                            <span style="width:70%"></span>
+                        </div>
+                        <div class="rating mt-15 mb-15">
+                            <i class="fa-solid fa-star c-orange fs-13"></i>
+                            <i class="fa-solid fa-star c-orange fs-13"></i>
+                            <i class="fa-solid fa-star c-orange fs-13"></i>
+                            <i class="fa-solid fa-star c-orange fs-13"></i>
+                            <i class="fa-solid fa-star c-orange fs-13"></i>
+                        </div>
+                    </div>
+                    <div class="info-box txt-c-mobile">
+                {% if account.fullName %}
+                {% include 'hasProfile.html'%}
+                {% else %}
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                        <div class="box p-20 d-flex align-center">
+                            <h4 class="c-gray fs-15 m-0 w-full">General information</h4>
+                            <div class="fs-14">
+                                <span class="c-red">Full Name</span>
+                                <input type="text" name="fullName">
+                            </div>
+                            <div class="fs-14">
+                                <span class="c-red">Gender:</span>
+                                <input type="text" name="gender">
+                            </div>
+                            <div class="fs-14">
+                                <span class="c-red">Country</span>
+                                <input type="text" name="country">
+                            </div>
+                            <div class="fs-14">
+                                <label>
+                                    <input class="toggle-checkbox" type="checkbox" checked />
+                                    <div class="toggle-switch">
+                                        <i class="fa-sharp fa-solid fa-circle"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="box p-20 d-flex align-center">
+                            <h4 class="c-gray fs-15 m-0 w-full">Personal Information
+                            </h4>
+                            <div class="fs-14">
+                                <span class="c-red">Email:</span>
+                                <span> {{user.email}} </span>
+                            </div>
+                            <div class="fs-14">
+                                <span class="c-red">Phone:</span>
+                                <span><input type="text" name="phone" accept="number"></span>
+                            </div>
+                            <div class="fs-14">
+                                <span class="c-red">Date Of Birth: </span>
+                                <span> <input type="date" name="date" id=""></span>
+                            </div>
+                            <div class="fs-14">
+                                <label>
+                                    <input class="toggle-checkbox" type="checkbox" checked />
+                                    <div class="toggle-switch">
+                                        <i class="fa-sharp fa-solid fa-circle"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="box p-20 d-flex align-center">
+                            <h4 class="c-gray fs-15 m-0 w-full">Job Information
+                            </h4>
+                            <div class="fs-14">
+                                <span class="c-red">docOrPatient:</span>
+                                <span><span><select name="docOrPatient" id="">
+                                    <option value="doctor">doctor</option>
+                                    <option value="patient">patient</option>
+                                </select></span></span>
+                            </div>
+                            <div class="fs-14">
+                                <span class="c-red">specialList:</span>
+                                <span><input type="text" name="spacial"></span>
+                            </div>
+                            <div class="fs-14">
+                                <span class="c-red">Years Of Experience:</span>
+                                <span><input type="number" name="YearsOfExp" id=""></span>
+                            </div>
+                            <div class="fs-14">
+                                <label>
+                                    <input class="toggle-checkbox" type="checkbox" checked />
+                                    <div class="toggle-switch">
+                                        <i class="fa-sharp fa-solid fa-circle"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="box p-20 d-flex align-center">
+                            <h4 class="c-gray fs-15 m-0 w-full">Billing Information
+                            </h4>
+                            <div class="fs-14">
+                                <span class="c-red">Payment Method: </span>
+                                <span><select name="PayMethod" id="">
+                                    <option value="cash">cash</option>
+                                    <option value="paypal">paypal</option>
+                                    <option value="visa">visa</option>
+                                </select></span>
+                            </div>
+                            <div class="fs-14">
+                                <span class="c-red">Email:</span>
+                                <span><input type="email" name="Payemail" id=""></span>
+                            </div>
+                            <div class="fs-14">
+                                <span class="c-red">price:</span>
+                                <span><input type="price" name="price" id=""></span>
+                            </div>
+                            <div class="fs-14">
+                                <label>
+                                    <input class="toggle-checkbox" type="checkbox" checked />
+                                    <div class="toggle-switch">
+                                        <i class="fa-sharp fa-solid fa-circle"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <input type="submit">
+                        </form>
+                    </div>
+                    
+                </div>
+
+                {%endif%}
+                <!-- Start Other data -->
+                <div class="other-data d-flex gap-20 mt-20">
+                    <!-- <div class="skills p-20 bg-white rad-10">
+                        <h2 class="mt-0 mb-10">My Skills</h2>
+                        <p class="mt-0 mb-20 c-blue fs-14 ">Complete Skills List</p>
+                        <ul class="m-0 txt-c-mobile">
+                            <li><span>HTML</span><span>Pugjs</span><span>HAML</span></li>
+                            <li><span>CSS</span><span>SASS</span><span>Stylus</span></li>
+                            <li><span>JavaScript</span><span>TypeScript</span></li>
+                            <li><span>Vuejs</span><span>Reactjs</span></li>
+                            <li><span>Jest</span><span>Jasmine</span></li>
+                            <li><span>PHP</span><span>Laravel</span></li>
+                            <li><span>Python</span><span>Django</span></li>
+                        </ul>
+                    </div> -->
+                    <div class="activities p-20 bg-white rad-10"  data-aos="zoom-in-right">
+                        <h2 class="mt-0 mb-10">Latest Activities</h2>
+                        <p class="mt-0 mb-20 c-red fs-14 ">Latest Activities Done By The User</p>
+                        <div class="activity d-flex align-center txt-c-mopile">
+                            <img src="./images/activity-01.png" alt="">
+                            <div class="info">
+                                <span class="d-block mb-15">Store</span>
+                                <span class="c-gray ">Bought The Mastering Python Course</span>
+                            </div>
+                            <div class="date">
+                                <span class="d-block mb-20">18:10</span>
+                                <span class="c-gray">Yesterday</span>
+                            </div>
+                        </div>
+
+                        <div class="activity d-flex align-center txt-c-mopile">
+                            <img src="./images/activity-02.png" alt="">
+                            <div class="info ">
+                                <span class="d-block mb-15">Academy</span>
+                                <span class="c-red ">Got The PHP Certificate</span>
+                            </div>
+                            <div class="date">
+                                <span class="d-block mb-20">16:5</span>
+                                <span class="c-red">Yesterday</span>
+                            </div>
+                        </div>
+
+                        <div class="activity d-flex align-center txt-c-mopile">
+                            <img src="./images/activity-03.png" alt="">
+                            <div class="info">
+                                <span class="d-block mb-15">Badges</span>
+                                <span class="c-blue">Unlocked The 10 Skills Badge</span>
+                            </div>
+                            <div class="date">
+                                <span class="d-block mb-20">18:5</span>
+                                <span class="c-blue">Yesterday</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Other data -->
+            </div>
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script>
+                AOS.init();
+            </script>
+</body>
+
+</html>

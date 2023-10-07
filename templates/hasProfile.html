@@ -1,0 +1,136 @@
+<!-- start frofile box -->
+{% load static %}
+<div class="overview p-20 bg-white rad-10">
+<!-- 
+    <div class="avatar-box txt-c p-20">
+        {%if account.proPic%}
+        <img class="rad-half mb-20" src="{{account.proPic.url}}" alt="">
+        {%else%}
+        <img class="rad-half mb-20" src="{% static 'images/blankPro.jpg' %}" alt="">
+        {% csrf_token %}
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            <input type="file" name="profileImg" id="" accept="image/*" style="border: none;">
+            <input type="submit" name="profilePic">
+        </form>
+        {%endif%}  
+        <h3 class="m-0">{{account.fullName}}</h3>
+        <p class="c-red mt-20">{{account.email}}</p>
+        <div class="level rad-6 bg-eee p-relative">
+            <span style="width:70%"></span>
+        </div>
+        <div class="rating mt-15 mb-15">
+            <i class="fa-solid fa-star c-orange fs-13"></i>
+            <i class="fa-solid fa-star c-orange fs-13"></i>
+            <i class="fa-solid fa-star c-orange fs-13"></i>
+            <i class="fa-solid fa-star c-orange fs-13"></i>
+            <i class="fa-solid fa-star c-orange fs-13"></i>
+        </div>
+    </div> -->
+    <div class="info-box txt-c-mobile">
+        <div class="box p-20 d-flex align-center">
+            <h4 class="c-gray fs-15 m-0 w-full">General information</h4>
+            <div class="fs-14">
+                <span class="c-red">Full Name</span>
+                <span>{{account.fullName}}</span>
+            </div>
+            <div class="fs-14">
+                <span class="c-red">Gender:</span>
+                <span>{{account.gender}}</span>
+            </div>
+            <div class="fs-14">
+                <span class="c-red">Country</span>
+                <span>{{account.country}}</span>
+            </div>
+            <div class="fs-14">
+                <label>
+                    <input class="toggle-checkbox" type="checkbox" checked />
+                    <div class="toggle-switch">
+                        <i class="fa-sharp fa-solid fa-circle"></i>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div class="box p-20 d-flex align-center">
+            <h4 class="c-gray fs-15 m-0 w-full">Personal Information
+            </h4>
+            <div class="fs-14">
+                <span class="c-red">Email:</span>
+                <span>{{account.email}}</span>
+            </div>
+            <div class="fs-14">
+                <span class="c-red">Phone:</span>
+                <span>{{account.phone}}</span>
+            </div>
+            <div class="fs-14">
+                <span class="c-red">Date Of Birth: </span>
+                <span> {{account.DateOfBirth}}</span>
+            </div>
+            <div class="fs-14">
+                <label>
+                    <input class="toggle-checkbox" type="checkbox" checked />
+                    <div class="toggle-switch">
+                        <i class="fa-sharp fa-solid fa-circle"></i>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div class="box p-20 d-flex align-center">
+            <h4 class="c-gray fs-15 m-0 w-full">Job Information
+            </h4>
+            <div class="fs-14">
+                <span class="c-red">type:</span>
+                <span>{{account.DocOrPat}}</span>
+            </div>
+            <div class="fs-14">
+                <span class="c-red">specialList:</span>
+                <span>{{account.specialList}}</span>
+            </div>
+            <div class="fs-14">
+                <span class="c-red">Years Of Experience:</span>
+                <span>{{account.yearOfExp}}+</span>
+            </div>
+            <div class="fs-14">
+                <label>
+                    <input class="toggle-checkbox" type="checkbox" checked />
+                    <div class="toggle-switch">
+                        <i class="fa-sharp fa-solid fa-circle"></i>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div class="box p-20 d-flex align-center">
+            <h4 class="c-gray fs-15 m-0 w-full">Billing Information
+            </h4>
+            <div class="fs-14">
+                <span class="c-red">Payment Method: </span>
+                <span>{{account.payMethod}}</span>
+            </div>
+            <div class="fs-14">
+                <span class="c-red">Email:</span>
+                <span>{{account.payEmail}}</span>
+            </div>
+            <div class="fs-14">
+                <span class="c-red">Email:</span>
+                <span>{{account.price}}</span>
+            </div>
+            <div class="fs-14">
+                <span class="c-red">Subscription:</span>
+                <span>Monthly</span>
+            </div>
+            <div class="fs-14">
+                <label>
+                    <input class="toggle-checkbox" type="checkbox" checked />
+                    <div class="toggle-switch">
+                        <i class="fa-sharp fa-solid fa-circle"></i>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<!-- Start Other data -->

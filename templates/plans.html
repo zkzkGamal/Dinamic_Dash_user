@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plans</title>
+    <link rel="stylesheet" href="{% static 'css/framework.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css'%}">
+    <link rel="stylesheet" href="{% static '/fontawesome-free-5.15.4-web/css/all.css'%}">
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web/css/all.min.css'%}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Start Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;900&family=Josefin+Sans:wght@300&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,400;0,600;0,800;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <!--Ends Google Fonts -->
+    <!-- Start icon awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- End icon awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&#038;display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="page d-flex">
+        {%include 'sidebar.html'%}
+        <div class="content w-full">
+            <!-- start head -->
+            <div class="head bg-white p-15 between-flex">
+                <div class="search p-relative">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" placeholder="Search">
+                </div>
+                <div class="icon d-flex align-center">
+                    <span class="notfication p-relative">
+                        <i class="fa-regular fa-bell fa-lg"></i>
+                    </span>
+                    <img src="./images/avatar.png" alt="" />
+                </div>
+            </div>
+            <!-- End head -->
+            <h1 class="p-relative">Plans</h1>
+            <div class="plans-page d-grid m-20 gap-20" data-aos="fade-down" data-aos-easing="linear"
+                data-aos-duration="1500">
+                <!-- Start plan -->
+                <div class="plan green bg-white mt-10 p-20 rad-6 " data-aos="fade-left"
+                    data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="500">
+                    <div class="top bg-green txt-c p-20">
+                        <h2 class="m-0 c-white">Free</h2>
+                        <div class="price c-white"><span>$</span>0.00
+                        </div>
+                    </div>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-check fa-fw yes"></i>
+                            <span>Access Scan QR-Code</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check fa-fw yes"></i>
+                            <span>Access patient Profile</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-xmark fa-fw"></i>
+                            <span>different  Material(High-Material)</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-xmark fa-fw"></i>
+                            <span>Dont access location</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-xmark fa-fw"></i>
+                            <span>Dont access the (VIP)</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn-shape bg-green c-white d-block w-fit">Join</a>
+                </div>
+                <!-- End plan -->
+                <!-- Start Plan -->
+                <div class="plan blue bg-white mt-10 p-20"  data-aos="fade-right"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine">
+                    <div class="top bg-blue txt-c p-20">
+                        <h2 class="m-0 c-white">Basic</h2>
+                        <div class="price c-white"><span>$</span>7.99</div>
+                    </div>
+                    <ul class="list-none p-0">
+                        <li>
+                            <i class="fa-solid fa-check fa-fw yes"></i>
+                            <span>Access Scan QR-Code</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check fa-fw yes"></i>
+                            <span>Access patient Profile</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-check fa-fw yes"></i>
+                            <span>different  Material(High-Material)</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-xmark fa-fw"></i>
+                            <span>Dont access location</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-xmark fa-fw"></i>
+                            <span>Dont access the (VIP)</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn-shape bg-blue c-white d-block w-fit">Join</a>
+                </div>
+                <!-- End Plan -->
+                <!-- Start Plan -->
+                <div class="plan orange bg-white mt-10 p-20" data-aos="zoom-in-up">
+                    <div class="top bg-orange txt-c p-20">
+                        <h2 class="m-0 c-white">Premium</h2>
+                        <div class="price c-white"><span>$</span>19.99</div>
+                    </div>
+                    <ul class="list-none p-0">
+                        <li>
+                            <i class="fa-solid fa-check fa-fw yes"></i>
+                            <span>Access Scan QR-Code</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check fa-fw yes"></i>
+                            <span>Access patient Profile</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-check fa-fw yes"></i>
+                            <span>different  Material(High-Material)</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check fa-fw yes"></i>
+                            <span>Dont access location</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check fa-fw yes"></i>
+                            <span>Dont access the (VIP)</span>
+                            <i class="fa-solid fa-circle-info help"></i>
+                        </li>
+                    </ul>
+                    <!-- <p class="c-grey m-0 txt-c">This Is Your Current Plan</p> -->
+                    <a href="#" class="btn-shape bg-orange c-white d-block w-fit">Join</a>
+
+                </div>
+                <!-- End Plan -->
+            </div>
+            <!-- 
+    <label>
+        <input class="toggle-checkbox" type="checkbox" checked />
+        <div class="toggle-switch">
+            <i class="fa-sharp fa-solid fa-circle"></i>
+        </div>
+    </label>  -->
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script>
+                AOS.init();
+            </script>
+</body>
+
+</html>
